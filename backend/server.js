@@ -1,4 +1,4 @@
-// Server.js - This file is the initial starting point for the Node/Express server.
+// Description: This file is the initial starting point for the Node/Express server.
 
 import express from "express";
 import cors from "cors";

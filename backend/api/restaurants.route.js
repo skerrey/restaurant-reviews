@@ -1,3 +1,5 @@
+// Description: API Routes for Restaurants
+
 import express from "express";
 import RestaurantsCtrl from "./restaurants.controller.js";
 import ReviewsCtrl from "./reviews.controller.js";

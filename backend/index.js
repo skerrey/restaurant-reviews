@@ -1,4 +1,4 @@
-// Connect to database 
+// Description: Connect to database 
 
 import app from "./server.js";
 import mongodb from "mongodb";

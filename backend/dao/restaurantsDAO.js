@@ -1,8 +1,8 @@
-// Data Access Objects for restaurants DB
+// Description: Data Access Objects for restaurants DB
 
 let restaurants;
 
-export default class ResturantsDAO { // Class for restaurants DAO
+export default class RestaurantsDAO { // Class for restaurants DAO
   static async injectDB(conn) { // Connect to restaurants DB
     if (restaurants) {
       return

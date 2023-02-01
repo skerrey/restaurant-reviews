@@ -1,3 +1,5 @@
+// Description: This file contains the controller for the review API
+
 import ReviewsDAO from "../dao/reviewsDAO.js";
 
 export default class ReviewsController {
