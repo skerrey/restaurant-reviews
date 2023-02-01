@@ -1,3 +1,5 @@
+// Description: This file contains the controller for the restaurants API
+
 import RestaurantsDAO from "../dao/restaurantsDAO.js"
 
 export default class RestaurantsController {
