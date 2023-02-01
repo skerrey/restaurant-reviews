@@ -23,7 +23,7 @@ export default class ReviewsController {
     }
   }
 
-  static async apiUpdateReview(res, res, next) { // Called when user updates a review
+  static async apiUpdateReview(req, res, next) { // Called when user updates a review
     try {
       const reviewId = req.body.review_id;
       const text = req.body.text;
@@ -53,7 +53,7 @@ export default class ReviewsController {
     }
   }
 
-  static async apiDeleteReview(req, req, next) { // Called when user deletes a review
+  static async apiDeleteReview(req, res, next) { // Called when user deletes a review
     try {
       const reviewId = req.query.id;
       const userId = req.body.user_id;
