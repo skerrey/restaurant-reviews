@@ -3,7 +3,7 @@
 import RestaurantsDAO from "../dao/restaurantsDAO.js"
 
 export default class RestaurantsController {
-  static async apiGetRestaurants(req, res, next) {
+  static async apiGetRestaurants(req, res, next) { // Get all restaurants
     const restaurantsPerPage = req.query.restaurantsPerPage ? parseInt(req.query.restaurantsPerPage, 10) : 20
     const page = req.query.page ? parseInt(req.query.page, 10) : 0
 
@@ -20,7 +20,7 @@ export default class RestaurantsController {
       filters,
       page,
       restaurantsPerPage,
-    })
+    });
 
     let response = {
       restaurants: restaurantsList,
@@ -28,10 +28,10 @@ export default class RestaurantsController {
       filters: filters,
       entries_per_page: restaurantsPerPage,
       total_results: totalNumRestaurants,
-    }
+    };
     res.json(response);
   }
-  static async apiGetRestaurantById(req, res, next) {
+  static async apiGetRestaurantById(req, res, next) { // Get restaurants by ID
     try {
       let id = req.params.id || {}
       let restaurant = await RestaurantsDAO.getRestaurantByID(id)
@@ -46,7 +46,7 @@ export default class RestaurantsController {
     }
   }
 
-  static async apiGetRestaurantCuisines(req, res, next) {
+  static async apiGetRestaurantCuisines(req, res, next) { // Get restaurant cuisines
     try {
       let cuisines = await RestaurantsDAO.getCuisines()
       res.json(cuisines)
