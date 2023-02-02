@@ -60,4 +60,60 @@ export default class RestaurantsDAO { // Class for restaurants DAO
       return { restaurantsList: [], totalNumRestaurants: 0 };
     }
   }
+
+  static async getRestaurantByID(id) { // Get restaurant by ID
+    try {
+      const pipeline = [
+        {
+          $match: {
+            _id: new ObjectId(id),
+          },
+        },
+        {
+          $lookup: {
+            from: "reviews",
+            let: {
+              id: "$_id",
+            },
+            pipeline: [
+              {
+                $match: {
+                  $expr: {
+                    $eq: ["$restaurant_id", "$$id"],
+                  },
+                },
+              },
+              {
+                $sort: {
+                  date: -1,
+                },
+              },
+            ],
+            as: "reviews",
+          },
+        },
+        {
+          $addFields: {
+            reviews: "$reviews",
+          },
+        },
+      ]
+      return await restaurants.aggregate(pipeline).next(); // Returns restaurants with reviews connected
+    } catch (e) {
+      console.error(`Something went wrong in getRestaurantById: ${e}`);
+      throw e;
+    }
+  }
+
+  static async getCuisines() { // Get cuisines
+    let cuisines = [];
+    try {
+      cuisines = await restaurants.distinct("cuisine"); // Get one of each cuisine 
+      return cuisines;
+    } catch (e) {
+      console.error(`Unable to get cuisines, ${e}`);
+      return cuisines
+    }
+  }
+
 }
