@@ -2,7 +2,7 @@
 
 import mongodb from "mongodb";
 
-const ObjectId = mongodb.ObjectId; // convert string to object ID
+const ObjectId = mongodb.ObjectId;
 
 let reviews;
 
