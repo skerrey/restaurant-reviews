@@ -12,7 +12,7 @@ export default class ReviewsDAO {
       return
     }
     try {
-      reviews = await conn.db(process.env.RESTREVIEW_NS).collection("reviews");
+      reviews = await conn.db(process.env.RESTREVIEWS_NS).collection("reviews");
     } catch (e) {
       console.error(`Unable to establish collection handles in userDAO: ${e}`);
     }
@@ -22,9 +22,10 @@ export default class ReviewsDAO {
     try {
       const reviewDoc = { 
         name: user.name,
+        user_id: user._id,
         date: date,
         text: review,
-        restaurant_id: ObjectId(restaurantId),
+        restaurant_id: new ObjectId(restaurantId),
       };
 
       return await reviews.insertOne(reviewDoc); // insert into DB 
@@ -37,7 +38,7 @@ export default class ReviewsDAO {
   static async updateReview(reviewId, userId, text, date) { // Updates review in DB
     try {
       const updateResponse = await reviews.updateOne(
-        { user_id: userId, _id: ObjectId(reviewId)}, // look for review with correct ID's
+        { user_id: userId, _id: new ObjectId(reviewId)}, // look for review with correct ID's
         { $set: { text: text, date: date } }, // update text and date
       )
 
@@ -51,7 +52,7 @@ export default class ReviewsDAO {
   static async deleteReview(reviewId, userId) { // Deletes review from DB
     try {
       const deleteResponse = await reviews.deleteOne({
-        _id: ObjectId(reviewId),
+        _id: new ObjectId(reviewId),
         user_id: userId,
       });
 
