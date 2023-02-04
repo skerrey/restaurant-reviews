@@ -80,7 +80,7 @@ const RestaurantsList = props => {
   };
 
   const findByCuisine = () => {
-    if (searchCuisine == "All Cuisines") {
+    if (searchCuisine === "All Cuisines") {
       refreshList();
     } else {
       find(searchCuisine, "cuisine")
@@ -88,9 +88,9 @@ const RestaurantsList = props => {
   };
 
   return (
-<div>
+    <div className="container">
       <div className="row pb-1">
-        <div className="input-group col-lg-4">
+        <div className="input-group col-lg-2">
           <input
             type="text"
             className="form-control"
@@ -108,7 +108,7 @@ const RestaurantsList = props => {
             </button>
           </div>
         </div>
-        <div className="input-group col-lg-4">
+        <div className="input-group col-lg-4 py-2">
           <input
             type="text"
             className="form-control"
@@ -131,13 +131,13 @@ const RestaurantsList = props => {
           <select onChange={onChangeSearchCuisine}>
             {cuisines.map(cuisine => {
               return (
-                <option value={cuisine}> {cuisine.substring(0, 20)} </option>
+                <option value={cuisine}> {cuisine.substring(0, 21)} </option>
               )
             })}
           </select>
           <div className="input-group-append">
             <button
-              className="btn btn-outline-secondary"
+              className="btn btn-outline-secondary ms-2"
               type="button"
               onClick={findByCuisine}
             >
