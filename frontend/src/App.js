@@ -3,6 +3,7 @@
 import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import logo from "./img/logo.png"
 
 import AddReview from "./components/add-review";
 import Restaurant from "./components/restaurants";
@@ -24,6 +25,7 @@ function App() {
     <div>
       <nav className="navbar navbar-expand navbar-dark bg-dark px-3">
         <a href="/restaurants" className="navbar-brand">
+          <img src={logo} alt="logo" className="me-2" />
           Restaurant Reviews
         </a>
         <div className="navbar-nav mr-auto">
@@ -34,9 +36,9 @@ function App() {
           </li>
           <li className="nav-item" >
             { user ? (
-              <a onClick={logout} className="nav-link" style={{cursor:'pointer'}}>
+              <button onClick={logout} className="nav-link bg-transparent border-0" style={{cursor:'pointer'}}>
                 Logout {user.name}
-              </a>
+              </button>
             ) : (            
             <Link to={"/login"} className="nav-link">
               Login
