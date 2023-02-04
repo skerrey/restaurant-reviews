@@ -148,7 +148,7 @@ const RestaurantsList = props => {
         </div>
       </div>
       <div className="row">
-        {restaurants.map((restaurant) => {
+        {restaurants.map((restaurant) => { // map restaurant building, street, zipcode to variable
           const address = `${restaurant.address.building} ${restaurant.address.street}, ${restaurant.address.zipcode}`;
           return (
             <div className="col-lg-4 pb-1">
