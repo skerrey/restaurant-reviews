@@ -35,9 +35,9 @@ const RestaurantsList = props => {
 
   const retrieveRestaurants = () => {
     RestaurantDataService.getAll()
-      .then(response => {
-        console.log(response.data);
-        setRestaurants(response.data.restaurants);
+      .then(res => {
+        console.log(res.data);
+        setRestaurants(res.data.restaurants);
 
       })
       .catch(e => {
@@ -47,9 +47,9 @@ const RestaurantsList = props => {
 
   const retrieveCuisines = () => {
     RestaurantDataService.getCuisines()
-      .then(response => {
-        console.log(response.data);
-        setCuisines(["All Cuisines"].concat(response.data));
+      .then(res => {
+        console.log(res.data);
+        setCuisines(["All Cuisines"].concat(res.data));
       })
       .catch(e => {
         console.log(e);
@@ -62,9 +62,9 @@ const RestaurantsList = props => {
 
   const find = (query, by) => {
     RestaurantDataService.find(query, by)
-      .then(response => {
-        console.log(response.data);
-        setRestaurants(response.data.restaurants);
+      .then(res => {
+        console.log(res.data);
+        setRestaurants(res.data.restaurants);
       })
       .catch(e => {
         console.log(e);
