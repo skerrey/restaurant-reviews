@@ -1,5 +1,5 @@
 {
-  "name": "Restaurant-Reviews",
+  "name": "restaurant-reviews",
   "version": "1.0.0",
   "description": "some description",
   "main": "./backend/index.js",
