@@ -13,7 +13,7 @@ app.use("/api/v1/restaurants", restaurants);
 app.use(
   cors({
     origin: ["http://localhost:5000",
-    "https://restaurant-reviews-backend-h23u.onrender.com/api/v1/restaurants" ],
+    "https://restaurant-reviews-backend-h23u.onrender.com/" ],
   })
 );
 
