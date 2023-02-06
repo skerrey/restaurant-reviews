@@ -88,9 +88,9 @@ const RestaurantsList = props => {
   };
 
   return (
-    <div className="container">
+    <div className="container pb-2">
       <div className="row pb-1">
-        <div className="input-group col-lg-2">
+        <div className="input-group col-lg-4">
           <input
             type="text"
             className="form-control"
@@ -100,7 +100,7 @@ const RestaurantsList = props => {
           />
           <div className="input-group-append">
             <button
-              className="btn btn-outline-secondary"
+              className="btn btn-dark"
               type="button"
               onClick={findByName}
             >
@@ -118,7 +118,7 @@ const RestaurantsList = props => {
           />
           <div className="input-group-append">
             <button
-              className="btn btn-outline-secondary"
+              className="btn btn-dark"
               type="button"
               onClick={findByZip}
             >
@@ -126,7 +126,7 @@ const RestaurantsList = props => {
             </button>
           </div>
         </div>
-        <div className="input-group col-lg-4">
+        <div className="input-group col-lg-4 pb-1">
 
           <select onChange={onChangeSearchCuisine}>
             {cuisines.map(cuisine => {
@@ -137,7 +137,7 @@ const RestaurantsList = props => {
           </select>
           <div className="input-group-append">
             <button
-              className="btn btn-outline-secondary ms-2"
+              className="btn btn-dark ms-2"
               type="button"
               onClick={findByCuisine}
             >
@@ -160,10 +160,15 @@ const RestaurantsList = props => {
                     <strong>Address: </strong>{address}
                   </p>
                   <div className="row">
-                  <Link to={"/restaurants/"+restaurant._id} className="btn btn-primary col-lg-5 mx-1 mb-1">
-                    View Reviews
-                  </Link>
-                  <a target="_blank" rel="noreferrer" href={"https://www.google.com/maps/place/" + address} className="btn btn-primary col-lg-5 mx-1 mb-1">View Map</a>
+                    <Link to={"/restaurants/"+restaurant._id} className="btn btn-warning col-lg-5 mx-1 mb-1">
+                      View Reviews
+                    </Link>
+                    <a target="_blank" 
+                      rel="noreferrer" 
+                      href={"https://www.google.com/maps/place/" + address} 
+                      className="btn btn-primary col-lg-5 mx-1 mb-1">
+                        View Map
+                      </a>
                   </div>
                 </div>
               </div>

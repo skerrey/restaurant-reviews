@@ -54,12 +54,14 @@ const AddReview = props => {
   };
 
   return (
-    <div>
+    <div className="submit-form"style={{
+      height: "100vh"
+    }}>
       {props.user ? (
-      <div className="submit-form">
+      <div>
         {submitted ? (
           <div>
-            <h4>You submitted successfully!</h4>
+            <h4 className="bg-white w-25 rounded px-2 py-1 text-center">You submitted successfully!</h4>
             <Link to={"/restaurants/" + props.match.params.id} className="btn btn-success">
               Back to Restaurant
             </Link>
@@ -67,7 +69,7 @@ const AddReview = props => {
         ) : (
           <div>
             <div className="form-group">
-              <label htmlFor="description">{ editing ? "Edit" : "Create" } Review</label>
+              <label className="h3 bg-white px-2 py-1 rounded" htmlFor="description">{ editing ? "Edit" : "Create" } Review</label>
               <input
                 type="text"
                 className="form-control"
@@ -78,7 +80,7 @@ const AddReview = props => {
                 name="text"
               />
             </div>
-            <button onClick={saveReview} className="btn btn-success">
+            <button onClick={saveReview} className="btn btn-success mt-2">
               Submit
             </button>
           </div>
@@ -86,8 +88,19 @@ const AddReview = props => {
       </div>
 
       ) : (
-      <div>
-        Please log in.
+      <div style={{
+        height: "100vh"
+      }}>
+        <div className="h1 text-center text-white text-underline">
+          Please log in.
+        </div>
+        <div className="col text-center">
+          <Link to={"/login"} className="btn btn-outline-light w-25" style={{
+            fontSize: "1.5rem"
+          }}>
+            Login
+          </Link>
+        </div>
       </div>
       )}
 

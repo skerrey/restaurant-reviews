@@ -3,7 +3,9 @@
 import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import logo from "./img/logo.png"
+
+import logo from "./img/logo.png" // Logo image by Freepik from Flaticon
+import background from "./img/background.jpg" // Background image by Pixabay from Pexels
 
 import AddReview from "./components/add-review";
 import Restaurant from "./components/restaurants";
@@ -22,7 +24,9 @@ function App() {
   }
 
   return (
-    <div>
+    <div style={{
+      backgroundImage: `url(${background})`,
+    }}>
       <nav className="navbar navbar-expand navbar-dark bg-dark px-3">
         <a href="/restaurants" className="navbar-brand">
           <img src={logo} alt="logo" className="me-2" />
@@ -71,6 +75,13 @@ function App() {
             )}
           />
         </Switch>
+      </div>
+      <div>
+        <footer className="footer mt-auto py-3 bg-dark">
+          <div className="container text-center">
+            <span className="text-muted">Restaurant Reviews by <a href="https://sethkerrey.com/">@sethkerrey</a></span>
+          </div>
+        </footer>
       </div>
     </div>
   );

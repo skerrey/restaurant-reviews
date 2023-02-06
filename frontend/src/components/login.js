@@ -22,9 +22,11 @@ const Login = props => {
   }
 
   return ( // login form
-    <div className="submit-form">
-      <div>
-        <div className="form-group">
+    <div className="submit-form w-50 mx-auto align-middle" style={{
+      height: "100vh"
+    }}>
+      <div className="bg-white p-3 rounded">
+        <div className="form-group h5">
           <label htmlFor="user">Username</label>
           <input
             type="text"
@@ -37,7 +39,7 @@ const Login = props => {
           />
         </div>
 
-        <div className="form-group">
+        <div className="form-group h5">
           <label htmlFor="id">ID</label>
           <input
             type="text"
@@ -50,7 +52,7 @@ const Login = props => {
           />
         </div>
 
-        <button onClick={login} className="btn btn-success">
+        <button onClick={login} className="btn btn-success mt-2">
           Login
         </button>
       </div>
