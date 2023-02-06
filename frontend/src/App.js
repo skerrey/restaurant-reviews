@@ -28,13 +28,13 @@ function App() {
       backgroundImage: `url(${background})`,
     }}>
       <nav className="navbar navbar-expand navbar-dark bg-dark px-3">
-        <a href={"/restaurants"} className="navbar-brand">
+        <a href="/" className="navbar-brand">
           <img src={logo} alt="logo" className="me-2" />
           Restaurant Reviews
         </a>
         <div className="navbar-nav mr-auto">
           <li className="nav-item">
-            <Link to={"/restaurants"} className="nav-link">
+            <Link to="/" className="nav-link">
               Restaurants
             </Link>
           </li>
