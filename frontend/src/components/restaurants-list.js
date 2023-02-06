@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import RestaurantDataService from "../services/restaurant";
 import { Link } from "react-router-dom";
 
+import { FiExternalLink } from "react-icons/fi"; // import icon
+
 const RestaurantsList = props => {
 
   // State hooks
@@ -167,8 +169,9 @@ const RestaurantsList = props => {
                       rel="noreferrer" 
                       href={"https://www.google.com/maps/place/" + address} 
                       className="btn btn-primary col-lg-5 mx-1 mb-1">
-                        View Map
-                      </a>
+                        View Map &nbsp;
+                        <FiExternalLink />
+                    </a>
                   </div>
                 </div>
               </div>
