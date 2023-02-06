@@ -57,8 +57,8 @@ const Restaurant = props => {
       height: "100vh"
     }}>
       {restaurant ? (
-        <div>
-          <div className="col-lg-8 bg-white rounded px-2">
+        <div className="row">
+          <div className="col-lg-8 bg-white rounded pt-2 px-2">
             <h3>{restaurant.name}</h3>
             <p>
               <strong>Cuisine: </strong>{restaurant.cuisine}<br/>
@@ -75,18 +75,25 @@ const Restaurant = props => {
             </div>
 
           </div>
+          
+          <div className="col-lg-4 bg-white rounded px-2">
+            <div className="d-flex justify-content-between align-items-center mt-2">
+              <div className="h3">
+                Reviews
+              </div>
+              <Link to={"/restaurants/" + props.match.params.id + "/review"} className="btn btn-warning">
+                Add Review
+              </Link>
+            </div>
 
-          <Link to={"/restaurants/" + props.match.params.id + "/review"} className="btn btn-warning mt-2">
-            Add Review
-          </Link>
-          <h4 className="pt-1">Reviews</h4>
-          <div className="row">
+
+
             {restaurant.reviews.length > 0 ? ( 
              restaurant.reviews.map((review, index) => {
                return (
-                
-                 <div className="col-lg-4 pb-1" key={index}>
+                 <div className="py-1" key={index}>
                    <div className="card">
+
                       <div className="card-header d-flex align-items-end">
                         <div>
                           <img src={userImg} alt="user" /><br />
@@ -125,6 +132,7 @@ const Restaurant = props => {
                           </div>                   
                        }
                      </div>
+
                    </div>
                  </div>
                );
@@ -134,7 +142,6 @@ const Restaurant = props => {
               <p>No reviews yet.</p>
             </div>
             )}
-
           </div>
 
         </div>
