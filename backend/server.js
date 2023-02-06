@@ -9,7 +9,15 @@ const app = express(); // Initialize express
 app.use(cors()); // Enable CORS
 app.use(express.json()); // Enable express to parse JSON
 
-app.use("/api/v1/restaurants", restaurants); // Use restaurants route
+app.use("/api/v1/restaurants", restaurants);
+app.use(
+  cors({
+    origin: ["http://localhost:5000",
+    "https://restaurant-reviews-backend-h23u.onrender.com/api/v1/restaurants" ],
+  })
+);
+
+
 app.use("*", (req, res) => res.status(404).json({ error: "Page not found" })); // Wildcard 404 route
 
 export default app;
