@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "./node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 import logo from "./img/logo.png" // Logo image by Freepik from Flaticon
 import background from "./img/background.jpg" // Background image by Pixabay from Pexels
