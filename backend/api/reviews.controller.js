@@ -11,7 +11,15 @@ export default class ReviewsController {
         name: req.body.name,
         _id: req.body.user_id
       };
-      const date = new Date();
+
+      const newDate = new Date();
+      const f = new Intl.DateTimeFormat("en", {
+        dateStyle: "medium",
+        timeStyle: "short",
+      })
+      const date = f.format(newDate);
+
+      // const date = new Date();
 
       const ReviewResponse = await ReviewsDAO.addReview(
         restaurantId,
@@ -29,7 +37,12 @@ export default class ReviewsController {
     try {
       const reviewId = req.body.review_id;
       const text = req.body.text;
-      const date = new Date();
+      const newDate = new Date();
+      const f = new Intl.DateTimeFormat("en", {
+        dateStyle: "medium",
+        timeStyle: "short",
+      })
+      const date = f.format(newDate);
 
       const reviewResponse = await ReviewsDAO.updateReview(
         reviewId,
