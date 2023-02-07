@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 
 import { FiExternalLink } from "react-icons/fi"; // import icon
 
+import Spinner from 'react-bootstrap/Spinner';
+
 const RestaurantsList = props => {
 
   // State hooks
@@ -14,6 +16,8 @@ const RestaurantsList = props => {
   const [searchZip, setSearchZip] = useState("");
   const [searchCuisine, setSearchCuisine] = useState("");
   const [cuisines, setCuisines] = useState(["All Cuisines"]);
+
+  const [loading, setLoading] = useState(false); 
 
   useEffect(() => { 
     retrieveRestaurants();
@@ -40,8 +44,9 @@ const RestaurantsList = props => {
       .then(res => {
         console.log(res.data);
         setRestaurants(res.data.restaurants);
-
+        setLoading(true)
       })
+
       .catch(e => {
         console.log(e);
       });
@@ -150,9 +155,15 @@ const RestaurantsList = props => {
         </div>
       </div>
       <div className="row">
+        {loading ? retrieveRestaurants : 
+          <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+          }
         {restaurants.map((restaurant) => { // map restaurant building, street, zipcode to variable
           const address = `${restaurant.address.building} ${restaurant.address.street}, ${restaurant.address.zipcode}`;
           return (
+
             <div className="col-lg-4 pb-1">
               <div className="card">
                 <div className="card-body">
