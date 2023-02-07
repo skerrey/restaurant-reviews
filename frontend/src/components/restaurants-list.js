@@ -155,10 +155,16 @@ const RestaurantsList = props => {
         </div>
       </div>
       <div className="row">
-        {loading ? retrieveRestaurants : 
-          <Spinner animation="border" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </Spinner>
+        { /* Spinner for loading */
+          loading ? retrieveRestaurants : 
+          <div className=" d-flex justify-content-center align-items-center bg-white rounded">
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+            <div className="ps-2">
+              <h3>Loading...</h3>
+            </div>
+          </div>
           }
         {restaurants.map((restaurant) => { // map restaurant building, street, zipcode to variable
           const address = `${restaurant.address.building} ${restaurant.address.street}, ${restaurant.address.zipcode}`;
